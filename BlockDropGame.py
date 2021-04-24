@@ -173,17 +173,17 @@ def game_init():
     cvs = tkinter.Canvas(root, width=912, height=768)
     cvs.pack()
     
-    bg = tkinter.PhotoImage(file="neko_bg.png")
-    cursor = tkinter.PhotoImage(file="neko_cursor.png")
+    bg = tkinter.PhotoImage(file="resources/neko_bg.png")
+    cursor = tkinter.PhotoImage(file="resources/neko_cursor.png")
     img_neko = [
         None,
-        tkinter.PhotoImage(file="neko1.png"),
-        tkinter.PhotoImage(file="neko2.png"),
-        tkinter.PhotoImage(file="neko3.png"),
-        tkinter.PhotoImage(file="neko4.png"),
-        tkinter.PhotoImage(file="neko5.png"),
-        tkinter.PhotoImage(file="neko6.png"),
-        tkinter.PhotoImage(file="neko_niku.png"),
+        tkinter.PhotoImage(file="resources/neko1.png"),
+        tkinter.PhotoImage(file="resources/neko2.png"),
+        tkinter.PhotoImage(file="resources/neko3.png"),
+        tkinter.PhotoImage(file="resources/neko4.png"),
+        tkinter.PhotoImage(file="resources/neko5.png"),
+        tkinter.PhotoImage(file="resources/neko6.png"),
+        tkinter.PhotoImage(file="resources/neko_niku.png"),
     ]
     cvs.create_image(456, 384, image=bg) # 배경
     tsugi = random.randint(1,6)
