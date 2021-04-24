@@ -196,6 +196,7 @@ def game_start():
     draw_txt("애니블럭", 312, 240, 100, "violet", "TITLE")
     draw_txt("Click to Start", 312, 560, 50, "orange", "TITLE")
     index = 0
+    score = 0
     
 def game_over():
     global root, index, cvs
