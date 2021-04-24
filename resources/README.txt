@@ -1,0 +1,1 @@
+This resources are made by modifyng free images, came from "https://www.freevector.com/".
