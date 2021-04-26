@@ -3,11 +3,13 @@ import random
 import copy
 
 kTargetFps = 60
+kKindness = 2 # after num of kindness animal put, random line drops
 
 index = 0 # 0 : intro, 1: playing, 2: gameover
 timer = 0
 score = 0
 tsugi = 0
+kindnessRemains = 0
 
 cursor_x = 0
 cursor_y = 0
@@ -41,7 +43,7 @@ def toggle_pressed_trigger():
 
 def mouse_press(e):
     global mouse_c, cursor_x, cursor_y
-    global tsugi, index, cvs, img_block, bPendSetblock
+    global tsugi, index, cvs, img_block, bPendSetblock, kindnessRemains
     if mouse_c == False:
         toggle_pressed_trigger()
         if index == 0:
@@ -60,8 +62,11 @@ def mouse_press(e):
                 tsugi = random.randint(1,6)
                 cvs.create_image(cursor_x* 72 + 60, cursor_y * 72 + 60\
                                     , image = img_block[block[cursor_y][cursor_x]], tag="block")
-                bPendSetblock = True
-                draw_UI()
+                if kindnessRemains == 0:
+                    bPendSetblock = True
+                    kindnessRemains = kKindness
+                else:
+                    kindnessRemains -= 1
         root.after(int(1/kTargetFps), toggle_pressed_trigger)
         
 def draw_block():
@@ -190,13 +195,14 @@ def game_init():
     tsugi = random.randint(1,6)
         
 def game_start():
-    global index, mouse_c, score, tsugi, cursor_x, cursor_y, cvs
+    global index, mouse_c, score, tsugi, cursor_x, cursor_y, cvs, kindnessRemains
     cvs.delete("block")
     cvs.delete("OVER")
     draw_txt("애니블럭", 312, 240, 100, "violet", "TITLE")
     draw_txt("Click to Start", 312, 560, 50, "orange", "TITLE")
     index = 0
     score = 0
+    kindnessRemains = kKindness
     
 def game_over():
     global root, index, cvs
