@@ -143,7 +143,7 @@ def drop_block():
     
 # 가장 윗줄에 고양이가 있는 지 확인
 def over_block():
-    for x in range(8):
+    for x in range(3,5): # 상단 중앙 2칸만 확인
         if block[0][x] != 0:
             return True
     return False
@@ -179,7 +179,7 @@ def game_init():
     cvs = tkinter.Canvas(root, width=912, height=768)
     cvs.pack()
     
-    bg = tkinter.PhotoImage(file="resources/bg1.png")
+    bg = tkinter.PhotoImage(file="resources/bg2.png")
     cursor = tkinter.PhotoImage(file="resources/cursor.png")
     img_block = [
         None,
