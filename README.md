@@ -1,6 +1,9 @@
 # GameStudy-Python-JPub_PyGame1
 애니블럭 게임 (파이썬으로 배우는 게임 개발 입문편 - Jpub)
 
+<img src='preview1.png' width="400px" height="300px"/>&nbsp;
+<img src='preview2.png' width="400px" height="300px"/>
+
 ### 개발기간 🏗️
 * 2021.04.22 ~ 2021.04.27
    
