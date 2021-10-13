@@ -1,8 +1,17 @@
 from distutils.core import setup
-import py2exe, sys, os
-sys.argv.append('py2exe')
+from glob import glob
+import py2exe, os
+
+py2exe_options = dict(
+    optimize=2,
+    compressed=True,
+    bundle_files=1,
+    dist_dir='release',
+    )
+
 setup(
-options = {'py2exe': {'bundle_files': 1}},
-windows = [{'script': "BlockDropGame.py"}],
-zipfile = None,
+    data_files = [('resources', glob('resources/*.*'))],
+    options ={'py2exe': py2exe_options},
+    windows = [{'script': "BlockDropGame.py"}],
+    zipfile=None,
 )
