@@ -26,6 +26,10 @@
 ### 빌드 방법 👷‍♂️ (Windows)
  * prerequisite
    * python ([3.9.4+](https://www.python.org/downloads/))
+   * tkinter
+     * `sudo apt install pip`
+     * `sudo apt-get install python3-tk`
+
  * `...\JPub_PyGame1>python3 setup.py`
  * `...\JPub_PyGame1>python3 bundle.py`
    * merged binary output
