@@ -36,11 +36,11 @@
   * python ([3.9.4](https://www.python.org/downloads/))
   * tkinter
     * Mac:
-      `brew install tcl-tk`
-      `pip3 install Pillow`
+      * `brew install tcl-tk`
+      * `pip3 install Pillow`
     * Ubuntu:
-      `sudo apt-get install python3-tk`
-      `sudo apt-get install python3-pip`
-      `pip3 install Pillow`
+      * `sudo apt-get install python3-tk`
+      * `sudo apt-get install python3-pip`
+      * `pip3 install Pillow`
 * run
   * `python3 BlockDropGame.py`
