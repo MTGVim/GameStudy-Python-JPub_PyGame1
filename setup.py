@@ -6,7 +6,7 @@ py2exe_options = dict(
     optimize=2,
     compressed=True,
     bundle_files=1,
-    dist_dir='release',
+    dist_dir='dist',
     )
 
 setup(

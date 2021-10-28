@@ -1,6 +1,7 @@
 import tkinter
 import random
 import copy
+from PIL import Image, ImageTk
 
 kTargetFps = 60
 kKindness = 2 # after num of kindness animal put, random line drops
@@ -20,6 +21,33 @@ check = []
 img_block = None
 cvs = None
 bPendSetblock = False
+
+from PIL import Image
+
+
+# MAC OSX 에서 알파값이 적용된 PNG를 그리지 못하는 이슈 해결용 함수
+# https://stackoverflow.com/questions/35929306/how-to-install-pil-to-python-3-5-on-a-mac
+def flattenAlpha(path):
+    img = Image.open(path)
+    alpha = img.split()[-1]  # Pull off the alpha layer
+    ab = alpha.tobytes()  # Original 8-bit alpha
+
+    checked = []  # Create a new array to store the cleaned up alpha layer bytes
+
+    # Walk through all pixels and set them either to 0 for transparent or 255 for opaque fancy pants
+    transparent = 50  # change to suit your tolerance for what is and is not transparent
+
+    p = 0
+    for pixel in range(0, len(ab)):
+        if ab[pixel] < transparent:
+            checked.append(0)  # Transparent
+        else:
+            checked.append(255)  # Opaque
+        p += 1
+    mask = Image.frombytes('L', img.size, bytes(checked))
+    img.putalpha(mask)
+    return img
+
 
 def update_cursor(x, y):
     global cursor_x, cursor_y, index
@@ -179,17 +207,18 @@ def game_init():
     cvs = tkinter.Canvas(root, width=912, height=768)
     cvs.pack()
     
-    bg = tkinter.PhotoImage(file="resources/bg2.png")
-    cursor = tkinter.PhotoImage(file="resources/cursor.png")
+    bg = ImageTk.PhotoImage(flattenAlpha("resources/bg2.png"))
+    print(bg)
+    cursor = ImageTk.PhotoImage(file="resources/cursor.png")
     img_block = [
         None,
-        tkinter.PhotoImage(file="resources/block1.png"),
-        tkinter.PhotoImage(file="resources/block2.png"),
-        tkinter.PhotoImage(file="resources/block3.png"),
-        tkinter.PhotoImage(file="resources/block4.png"),
-        tkinter.PhotoImage(file="resources/block5.png"),
-        tkinter.PhotoImage(file="resources/block6.png"),
-        tkinter.PhotoImage(file="resources/block_fade.png"),
+        ImageTk.PhotoImage(flattenAlpha("resources/block1.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block2.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block3.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block4.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block5.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block6.png")),
+        ImageTk.PhotoImage(flattenAlpha("resources/block_fade.png")),
     ]
     cvs.create_image(456, 384, image=bg) # 배경
     tsugi = random.randint(1,6)

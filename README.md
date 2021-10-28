@@ -5,7 +5,7 @@
 <img src='preview2.png' width="400px" height="300px"/>
 
 ### 개발기간 🏗️
-* 2021.04.22 ~ 2021.04.27
+* 2021.04.22 ~ 2021.04.27, 2021.10.29
    
 ### 기술 📚
 * Language
@@ -25,20 +25,22 @@
 
 ### 빌드 방법 👷‍♂️ (Windows)
  * prerequisite
-   * python ([3.9.4+](https://www.python.org/downloads/))
+   * python ([3.9.4](https://www.python.org/downloads/))
    * tkinter
      * `sudo apt-get install python3-tk`
- * `...\JPub_PyGame1>python3 setup.py`
- * `...\JPub_PyGame1>python3 bundle.py`
-   * merged binary output
+ * `...\JPub_PyGame1>python3 setup.py py2exe`
+   * dist에 output 생성됨
 
 ### 실행 방법 🏃 (Ubuntu / Mac)
 * prerequisite
-  * python ([3.9.4+](https://www.python.org/downloads/))
+  * python ([3.9.4](https://www.python.org/downloads/))
   * tkinter
     * Mac:
       `brew install tcl-tk`
+      `pip3 install Pillow`
     * Ubuntu:
       `sudo apt-get install python3-tk`
+      `sudo apt-get install python3-pip`
+      `pip3 install Pillow`
 * run
   * `python3 BlockDropGame.py`
