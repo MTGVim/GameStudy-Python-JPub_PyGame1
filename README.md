@@ -28,7 +28,17 @@
    * python ([3.9.4+](https://www.python.org/downloads/))
    * tkinter
      * `sudo apt-get install python3-tk`
-
  * `...\JPub_PyGame1>python3 setup.py`
  * `...\JPub_PyGame1>python3 bundle.py`
    * merged binary output
+
+### 실행 방법 🏃 (Ubuntu / Mac)
+* prerequisite
+  * python ([3.9.4+](https://www.python.org/downloads/))
+  * tkinter
+    * Mac:
+      `brew install tcl-tk`
+    * Ubuntu:
+      `sudo apt-get install python3-tk`
+* run
+  * `python3 BlockDropGame.py`
